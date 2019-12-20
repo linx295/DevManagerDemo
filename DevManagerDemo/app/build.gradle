@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.devmanagerdemo"
+        minSdkVersion 22
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //implementation 'no.nordicsemi.android:log:2.1.1'
+    implementation 'no.nordicsemi.android:log:2.2.0'
+
+    // Import the BLE Library
+    //implementation 'no.nordicsemi.android:ble:1.2.0'
+
+    // The DFU Library is imported automatically from jcenter:
+    //implementation 'no.nordicsemi.android:dfu:1.6.1'
+    implementation 'no.nordicsemi.android:dfu:1.9.0'
+
+    // Import the BLE Common Library.
+    // The BLE Common Library depends on BLE Library. It is enough to include the first one.
+    implementation 'no.nordicsemi.android:ble-common:2.1.1'
+    // The BLE Common Library may be included from jcenter. If you want to modify the code,
+    // clone both projects from GitHub and replace the line above with the following
+    // (and also the according lines in the settings.gradle):
+    // implementation project(':ble-common')
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
