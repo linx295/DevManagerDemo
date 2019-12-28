@@ -1,4 +1,5 @@
-DevManagerDemo
+# DevManagerDemo
+
 一个基于nrf5x ble uart服务管理框架
 
 详细说明：
